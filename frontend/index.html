@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Harita</title>
+  <script src="https://unpkg.com/maplibre-gl@^5.6.1/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@^5.6.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="searchContainer">
+    <input type="text" id="searchInput" placeholder="İstasyon veya Hat adı yazın" list="searchSuggestions" />
+    <datalist id="searchSuggestions"></datalist>
+    <button id="searchBtn">Ara</button>
+    <img id="searchSilhouette" src="assets/search-button.png" alt="İstanbul Silüeti">
+  </div>
+  <div id="info-panel" title="İstasyon Bilgileri">
+    <div class="info-content">
+      <h3 id="station-name">İstasyon Bilgisi</h3>
+      <p id="station-description">Bir istasyona tıkladığınızda burada bilgi görünecek.</p>
+    </div>
+    <img id="silhouette" src="assets/istanbul-siluet.png" alt="İstanbul Silüeti">
+  </div>
+  <div id="toggleMenu" title="Katmanları Ayarla">
+    <img src="assets/filter-icon.svg" width="25" height="25" />
+  </div>
+  <div id="layerControls">
+    <label class="switch-label">Hatlar
+      <input type="checkbox" id="toggleHatlar" checked>
+      <span class="switch-slider"></span>
+    </label>
+    <label class="switch-label">İstasyonlar
+      <input type="checkbox" id="toggleIstasyonlar">
+      <span class="switch-slider"></span>
+    </label>
+    <img id="layerSilhouette" src="assets/istanbul-siluet.png" alt="İstanbul Silüeti">
+  </div>
+  <div id="legendBox">
+    <div class="legend-item"><span class="legend-color metro"></span> Metro</div>
+    <div class="legend-item"><span class="legend-color hafif-metro"></span> Hafif Metro</div>
+    <div class="legend-item"><span class="legend-color tramvay"></span> Tramvay</div>
+    <div class="legend-item"><span class="legend-color banliyo"></span> Banliyö</div>
+    <div class="legend-item"><span class="legend-color funikuler"></span> Füniküler</div>
+    <div class="legend-item"><span class="legend-color teleferik"></span> Teleferik</div>
+    <div class="legend-item"><span class="legend-color nostaljik"></span> Nostaljik Tramvay</div>
+    <div class="legend-item"><span class="legend-color insaat"></span> İnşaat Aşamasında</div>
+  </div>
+  <div id="toggleRoutePanel" title="Yol Tarifi Al">
+    <img src="assets/route-icon.svg" width="25" height="25" />
+  </div>
+  <div id="routePanel">
+    <label for="startSelect">Başlangıç:</label>
+    <select id="startSelect" style="margin-bottom: 5px; display: block; width: 200px;"></select>
+
+    <label for="endSelect">Bitiş:</label>
+    <select id="endSelect" style="margin-bottom: 10px; display: block; width: 200px;"></select>
+
+    <button id="calculateRouteBtn" style="display: block; margin-bottom: 8px;">Yol Tarifi Al</button>
+    <button id="closeRouteBtn" style="display: none;">Yol Tarifini İptal Et</button>
+    <button id="goHaritaIstanbulBtn" style="display: none;">Rotaya Başla</button>
+  </div>
+
+  <div id="loader">
+    <div class="spinner">
+      <span id="percentage">0%</span>
+    </div>
+    <div id="loadingLabel">Veriler Yükleniyor</div>
+  </div>
+  <div id="map"></div>
+  <script src="main.js"></script>
+</body>
+
+</html>
