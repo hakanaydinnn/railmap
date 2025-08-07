@@ -79,5 +79,3 @@ E) KULLANICI ARAYÜZÜ VE DOKÜMANTASYON
 OPSİYONEL: Gelişmiş Özellikler (Ekstra zaman varsa)
      Konuma göre en yakın istasyonu göster
      Zamanlayıcı: “10 dk sonra geçen ilk tren”
-
-     aaaaaaaaaaaaaaaaaaaaaaaa
