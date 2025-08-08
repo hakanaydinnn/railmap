@@ -132,8 +132,9 @@ map.on("load", async () => {
   }, 100);
 
   // Verileri çek
-  const fetchedIstasyon = await fetch("http://localhost:9000/istasyonlar/").then(res => res.json());
-  const fetchedHat = await fetch("http://localhost:9000/hatlar/").then(res => res.json());
+  const API = "https://seninapp.railway.app";
+  const fetchedIstasyon = await fetch(`${API}/istasyonlar/`).then(r => r.json());
+  const fetchedHat = await fetch(`${API}/hatlar/`).then(r => r.json());
 
   // Geçerli veri geldi mi kontrol et
   const istasyonValid = fetchedIstasyon.length > 0;
