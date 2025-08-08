@@ -132,7 +132,7 @@ map.on("load", async () => {
   }, 100);
 
   // Verileri çek
-  const API = "https://seninapp.railway.app";
+  const API = "https://railmap-production.up.railway.app";
   const fetchedIstasyon = await fetch(`${API}/istasyonlar/`).then(r => r.json());
   const fetchedHat = await fetch(`${API}/hatlar/`).then(r => r.json());
 
